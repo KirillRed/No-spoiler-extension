@@ -1,0 +1,9 @@
+.blocked {
+    background-color: black;
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+}
+a {
+    color: red;
+}

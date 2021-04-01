@@ -1,0 +1,49 @@
+{
+    "name": "anti-spoiler ext",
+    "description": "This extension will help you with spoilers! It will block videos that have key words that you provide in this extension.",
+    "version": "0.0.1",
+    "manifest_version": 3,
+    "icons": {
+        "16": "./icons/16x16.png",
+        "32": "./icons/32x32.png",
+        "48": "./icons/48x48.png",
+        "128": "./icons/128x128.png"
+    },
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "js": [
+                "./index.js"
+            ],
+            "matches": [
+                "https://www.youtube.com/"
+            ],
+            "css": [
+                "./blocked.css"
+            ]
+        },
+        {
+            "js": [
+                "./search-results/search-results.js"
+            ],
+            "matches": [
+                "https://www.youtube.com/results*"
+            ],
+            "css": [
+                "./blocked.css"
+            ]
+        }
+    ],
+    "options_page": "./options/options.html",
+    "action": {
+        "default_popup": "./popup/popup.html"
+    },
+    "permissions": [
+        "tabs",
+        "activeTab",
+        "storage",
+        "scripting"
+    ]
+}
