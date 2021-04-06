@@ -1,4 +1,15 @@
 body {
-    width: 600px;
-    height: 500px;
+    width: 400px;
+    height: 550px;
+    background-color: #101315;
+    color: cornsilk;
+    position: relative;
+}
+
+a {
+    color: cornsilk;
+}
+
+a:hover{
+    color: darkgrey;
 }

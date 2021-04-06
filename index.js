@@ -1,6 +1,7 @@
-import { keywords } from './background'
+let keywords = ['tangled', 'itpedia', 'english', 'rocket league', 'angular', 'mandalorian', 'rapunzel', 'clone wars', 'звездные войны']
 
 setInterval(block, 1000)
+
 
 function block() {
     let videos = document.getElementsByTagName('ytd-rich-item-renderer')
@@ -40,7 +41,7 @@ function block() {
 
             video.getElementsByClassName('div-blocked')[0].getElementsByTagName('a')[0].addEventListener('click', () => {
                 contentDiv.removeAttribute('hidden')
-                video.classList.remove(video.classList[video.classList.length - 1])
+                video.classList.remove('blocked')
                 video.getElementsByClassName('div-blocked')[0].setAttribute('hidden', 'true')
             })
 

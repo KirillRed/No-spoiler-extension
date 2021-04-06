@@ -1,0 +1,30 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport">
+    <meta http-equiv="Content Security Policy; script-src 'sha256-OXEmYnMgZpcBKit5yLMOlRyRxhsKvu4LTcgp2eZdBOY=';">
+
+    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="/node_modules/popper.js/dist/umd/popper.min.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <link href="/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./popup.css">
+    <script src="./popup.js"></script>
+    <script src="./forbidden-keywords.js"></script>
+</head>
+
+<body>
+    <div id="nav-placeholder">
+
+    </div>
+
+    <form>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="search-results" id="defaultCheck1">
+            <label class="form-check-label" for="defaultCheck1">
+                Hide search result videos
+            </label>
+        </div>
+        <h5 class="mt-3">Write one keyword on each field</h5>
+        <input style="width: 300px;" class="form-control form-control-sm my-2" type="text" placeholder="Keyword">
+        <button id="add-keyword" type="button" class="btn btn-success">Add one more keyword field</button>
+</body>

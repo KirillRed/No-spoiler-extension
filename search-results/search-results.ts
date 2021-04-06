@@ -1,4 +1,4 @@
-import { keywords } from './background'
+let keywords = ['tangled', 'itpedia', 'english', 'rocket league', 'angular', 'mandalorian', 'rapunzel', 'clone wars', 'звездные войны']
 
 function block() {
     let videos = document.getElementsByTagName('ytd-video-renderer');

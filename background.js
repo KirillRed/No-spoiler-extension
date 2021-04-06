@@ -1,8 +1,5 @@
-export let keywords = ['tangled', 'itpedia', 'english', 'rocket league', 'angular', 'mandalorian', 'rapunzel', 'clone wars', 'звездные войны']
-chrome.tabs.onActivated.addListener(tab => {
-    chrome.tabs.get(tab.tabId, current_tab => {
-        if (/^https:\/\/www\.youtube/.test(current_tab.url)) {
-            console.log(current_tab)
-        }
-    })
+chrome.webNavigation.onTabReplaced.addListener(() => {
+    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+        chrome.tabs.sendMessage(tabs[0].id, 'Hello');
+    });
 })

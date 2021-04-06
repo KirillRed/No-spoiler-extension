@@ -15,35 +15,47 @@
     "content_scripts": [
         {
             "js": [
-                "./index.js"
+                "/index.js"
             ],
             "matches": [
                 "https://www.youtube.com/"
             ],
             "css": [
-                "./blocked.css"
+                "/blocked.css"
             ]
         },
         {
             "js": [
-                "./search-results/search-results.js"
+                "/search-results/search-results.js"
             ],
             "matches": [
                 "https://www.youtube.com/results*"
             ],
             "css": [
-                "./blocked.css"
+                "/blocked.css"
             ]
         }
     ],
-    "options_page": "./options/options.html",
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "index.js",
+                "search-results/search-results-start.js"
+            ],
+            "matches": [
+                "<all_urls>"
+            ]
+        }
+    ],
+    "options_page": "/options/options.html",
     "action": {
-        "default_popup": "./popup/popup.html"
+        "default_popup": "/popup/popup.html"
     },
     "permissions": [
         "tabs",
         "activeTab",
         "storage",
-        "scripting"
+        "scripting",
+        "webNavigation"
     ]
 }
