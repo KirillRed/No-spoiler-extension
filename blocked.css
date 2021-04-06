@@ -4,6 +4,12 @@
     font-size: 2rem;
     text-align: center;
 }
+.div-blocked{
+    background-color: black;
+}
+.div-blocked:hover {
+    background-color: black;
+}
 a {
     color: red;
 }
