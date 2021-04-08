@@ -1,14 +1,24 @@
-let keywords = ['tangled', 'itpedia', 'english', 'rocket league', 'angular', 'mandalorian']
+
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-    console.log(message)
-    return true
+    console.log('search')
+    sendResponse('Got it')
+    setInterval(searchResultsBlock, 1000)
+
 });
 
+try {
+    var keywords = ['tangled', 'itpedia', 'english', 'rocket league', 'angular', 'mandalorian'];
+    var exceptionKeywords = ['learn', 'speak']
+}
+catch (ReferenceError) {
 
-setInterval(block, 1000)
+}
 
-function block() {
+
+setInterval(searchResultsBlock, 1000)
+
+function searchResultsBlock() {
     let videos = document.getElementsByTagName('ytd-video-renderer');
     for (let video of Array.from(videos)) {
         let titleTag = video.getElementsByTagName('h3')[0];
@@ -16,7 +26,7 @@ function block() {
         let blockedKeywords = []
 
         for (let keyword of keywords) {
-            if (title.toLowerCase().includes(keyword)) {
+            if (title.toLowerCase().includes(keyword) && !exceptionKeywords.some(word => title.toLowerCase().includes(word))) {
                 blockedKeywords.push(keyword)
 
             }

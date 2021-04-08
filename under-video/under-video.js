@@ -1,10 +1,32 @@
-const keywords = ['tangled', 'itpedia', 'english', 'rocket league', 'angular', 'mandalorian', 'mix']
+try {
+    var keywords = ['itpedia', 'mandalorian', 'rebels', 'ahsoka', 'ezra', 'sabine', 'kanan',
+        'avatar', 'aang', 'sokka', 'katara'];
+    var exceptionKeywords = ['practise', 'learn']
+}
+catch (ReferenceError) {
 
-setInterval(block, 1000)
+}
 
-let hideMix = true;
 
-function block() {
+
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+    setInterval(underVideoBlock, 1000)
+    sendResponse('Got it')
+});
+
+
+setInterval(underVideoBlock, 1000)
+
+try {
+    var hideMix = true;
+}
+catch (ReferenceError) {
+
+}
+
+function underVideoBlock() {
+
+    //Feed and mix
     let videos = Array.from(document.getElementsByTagName('ytd-compact-video-renderer'))
     videos = videos.concat(Array.from(document.getElementsByTagName('ytd-compact-playlist-renderer')))
     videos = videos.concat(Array.from(document.getElementsByTagName('ytd-compact-radio-renderer')))
@@ -19,7 +41,7 @@ function block() {
 
         let blockedKeywords = []
         for (const keyword of keywords) {
-            if (title.toLowerCase().includes(keyword)) {
+            if (title.toLowerCase().includes(keyword) && !exceptionKeywords.some(word => title.toLowerCase().includes(word))) {
                 blockedKeywords.push(keyword)
 
             }
@@ -47,4 +69,6 @@ function block() {
 
         }
     }
+
+    //Watch next videos
 }

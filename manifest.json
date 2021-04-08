@@ -15,10 +15,10 @@
     "content_scripts": [
         {
             "js": [
-                "/index.js"
+                "/search-results/search-results.js"
             ],
             "matches": [
-                "https://www.youtube.com/"
+                "https://www.youtube.com/results*"
             ],
             "css": [
                 "/blocked.css"
@@ -26,10 +26,21 @@
         },
         {
             "js": [
-                "/search-results/search-results.js"
+                "/under-video/under-video.js"
             ],
             "matches": [
-                "https://www.youtube.com/results*"
+                "https://www.youtube.com/watch*"
+            ],
+            "css": [
+                "/blocked.css"
+            ]
+        },
+        {
+            "js": [
+                "/index.js"
+            ],
+            "matches": [
+                "https://www.youtube.com/"
             ],
             "css": [
                 "/blocked.css"
@@ -57,5 +68,8 @@
         "storage",
         "scripting",
         "webNavigation"
+    ],
+    "host_permissions": [
+        "https://www.youtube.com/*"
     ]
 }
