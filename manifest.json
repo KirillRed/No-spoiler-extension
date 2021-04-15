@@ -14,9 +14,6 @@
     },
     "content_scripts": [
         {
-            "js": [
-                "/search-results/search-results.js"
-            ],
             "matches": [
                 "https://www.youtube.com/results*"
             ],
@@ -25,20 +22,15 @@
             ]
         },
         {
-            "js": [
-                "/under-video/under-video.js"
-            ],
             "matches": [
                 "https://www.youtube.com/watch*"
             ],
             "css": [
-                "/blocked.css"
+                "/blocked.css",
+                "/under-video/under-video.css"
             ]
         },
         {
-            "js": [
-                "/index.js"
-            ],
             "matches": [
                 "https://www.youtube.com/"
             ],

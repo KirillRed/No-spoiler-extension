@@ -5,10 +5,25 @@ console.log('hello!')
 //         console.log('hello')
 //     });
 // })
+chrome.storage.sync.get(['keywords'], result => {
+    if (result.keywords === undefined) {
+        chrome.storage.sync.set({ keywords: [] });
+    }
+})
+chrome.storage.sync.get(['keywords'], result => {
+    console.log(result.keywords)
+})
 chrome.tabs.onUpdated.addListener(function (tabID, info, tab) {
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+        console.log('here you are')
+        chrome.scripting.executeScript(
+            {
+                target: { tabId: tabID },
+                files: ['delete-div-blocks.js']
+            },
+            () => { });
         if (/https:\/\/www.youtube.com\/watch*/.test(tab.url)) {
-            console.log('watch')
+            chrome.storage.local.set({ injectUnderVideoTime: 1 }, () => { })
             chrome.scripting.executeScript(
                 {
                     target: { tabId: tabID },
@@ -34,8 +49,5 @@ chrome.tabs.onUpdated.addListener(function (tabID, info, tab) {
                 },
                 () => { });
         }
-        // chrome.tabs.sendMessage(tabs[0].id, { greeting: "hello" }, function (response) {
-        //     console.log(tabs)
-        //  });
     });;
 });

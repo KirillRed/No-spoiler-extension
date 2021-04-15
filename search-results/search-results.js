@@ -19,6 +19,7 @@ catch (ReferenceError) {
 setInterval(searchResultsBlock, 1000)
 
 function searchResultsBlock() {
+    console.log('hi')
     let videos = document.getElementsByTagName('ytd-video-renderer');
     for (let video of Array.from(videos)) {
         let titleTag = video.getElementsByTagName('h3')[0];
