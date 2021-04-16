@@ -8,8 +8,11 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 });
 
 try {
-    var keywords = ['tangled', 'itpedia', 'english', 'rocket league', 'angular', 'mandalorian'];
-    var exceptionKeywords = ['learn', 'speak']
+    var keywords;
+    chrome.storage.sync.get(['keywords'], result => {
+        keywords = result.keywords;
+    })
+    var exceptionKeywords = ['learn', 'speak'];
 }
 catch (ReferenceError) {
 

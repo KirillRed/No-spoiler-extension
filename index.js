@@ -1,5 +1,6 @@
 try {
-    var keywords = ['tangled', 'itpedia', 'english', 'rocket league', 'angular', 'mandalorian'];
+    var keywords = ['itpedia', 'mandalorian', 'rebels', 'ahsoka', 'ezra', 'sabine', 'kanan',
+        'avatar', 'aang', 'sokka', 'katara', 'yoda', 'english'];
     var exceptionKeywords = ['practise']
 }
 catch (ReferenceError) {

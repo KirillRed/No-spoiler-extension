@@ -13,3 +13,13 @@ a {
 a:hover{
     color: darkgrey;
 }
+
+.remove {
+    background-image: url('./remove.png');
+    height: 30px;
+    width: 30px;
+}
+
+.input-group input {
+    width: 200px;
+}

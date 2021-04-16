@@ -10,6 +10,6 @@
 .div-blocked:hover {
     background-color: black;
 }
-a {
+.div-blocked a {
     color: red;
 }

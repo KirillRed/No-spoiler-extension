@@ -25,6 +25,11 @@
             </label>
         </div>
         <h5 class="mt-3">Write one keyword on each field</h5>
-        <input style="width: 300px;" class="form-control form-control-sm my-2" type="text" placeholder="Keyword">
+        <button id="save-button" type="button" class="btn btn-primary mr-2">Save</button>
         <button id="add-keyword" type="button" class="btn btn-success">Add one more keyword field</button>
+        <p id='free-trial-warning' class="message" hidden style="color:red;">Sorry, in free trial you can set maximum 7
+            keywords!</p>
+        <p id='length-warning' class="message" hidden style="color:red;">Keyword must be at least 3 characters long!
+        </p>
+        <p id='save-success' class="message" hidden style="color:#28a745;">Success! Your keywords have been saved!</p>
 </body>

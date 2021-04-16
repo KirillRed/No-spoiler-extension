@@ -5,6 +5,7 @@ console.log('hello!')
 //         console.log('hello')
 //     });
 // })
+chrome.storage.sync.set({ free: false })
 chrome.storage.sync.get(['keywords'], result => {
     if (result.keywords === undefined) {
         chrome.storage.sync.set({ keywords: [] });
