@@ -1,7 +1,12 @@
 try {
-    var keywords = ['itpedia', 'mandalorian', 'rebels', 'ahsoka', 'ezra', 'sabine', 'kanan',
-        'avatar', 'aang', 'sokka', 'katara', 'yoda', 'english'];
-    var exceptionKeywords = ['practise']
+    var keywords = [];
+    var exceptionKeywords = []
+    chrome.storage.sync.get(['keywords'], result => {
+        keywords = result.keywords;
+    })
+    chrome.storage.sync.get(['exceptions'], result => {
+        exceptionKeywords = result.exceptions;
+    })
 }
 catch (ReferenceError) {
 

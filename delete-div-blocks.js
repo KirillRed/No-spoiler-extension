@@ -5,4 +5,3 @@ for (const block of Array.from(document.getElementsByClassName('div-blocked'))) 
     }
     block.remove();
 }
-console.log('here')

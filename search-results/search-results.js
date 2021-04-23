@@ -8,11 +8,14 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 });
 
 try {
-    var keywords;
+    var keywords = [];
+    var exceptionKeywords = []
     chrome.storage.sync.get(['keywords'], result => {
         keywords = result.keywords;
     })
-    var exceptionKeywords = ['learn', 'speak'];
+    chrome.storage.sync.get(['exceptions'], result => {
+        exceptionKeywords = result.exceptions;
+    })
 }
 catch (ReferenceError) {
 
@@ -22,7 +25,6 @@ catch (ReferenceError) {
 setInterval(searchResultsBlock, 1000)
 
 function searchResultsBlock() {
-    console.log('hi')
     let videos = document.getElementsByTagName('ytd-video-renderer');
     for (let video of Array.from(videos)) {
         let titleTag = video.getElementsByTagName('h3')[0];

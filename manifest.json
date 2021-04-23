@@ -15,7 +15,7 @@
     "content_scripts": [
         {
             "matches": [
-                "https://www.youtube.com/results*"
+                "https://www.youtube.com/*"
             ],
             "css": [
                 "/blocked.css"
@@ -26,16 +26,7 @@
                 "https://www.youtube.com/watch*"
             ],
             "css": [
-                "/blocked.css",
                 "/under-video/under-video.css"
-            ]
-        },
-        {
-            "matches": [
-                "https://www.youtube.com/"
-            ],
-            "css": [
-                "/blocked.css"
             ]
         }
     ],
@@ -43,7 +34,9 @@
         {
             "resources": [
                 "index.js",
-                "search-results/search-results-start.js"
+                "search-results/search-results-start.js",
+                "./popup/forbidden-keywords.js",
+                "./popup/exceptions.js"
             ],
             "matches": [
                 "<all_urls>"
