@@ -2,10 +2,14 @@ try {
     var keywords = [];
     var exceptionKeywords = [];
     chrome.storage.sync.get(['keywords'], result => {
-        keywords = result.keywords;
+        if (result.keywords !== undefined) {
+            keywords = result.keywords;
+        }
     })
     chrome.storage.sync.get(['exceptions'], result => {
-        exceptionKeywords = result.exceptions;
+        if (result.exceptions !== undefined) {
+            exceptions = result.exceptions;
+        }
     })
 }
 catch (ReferenceError) {
