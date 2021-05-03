@@ -11,5 +11,5 @@ I hope you enjoy this extension! If not, please let me know what is wrong.
 ## Getting started
 First of all, download the code.
 
-Then, go to browser that is written in chromium (for example Chrome, Opera, Mictosoft Edge). Go to your extensions and turn on "Developer mode". After that, choose "Load unpacked" and select folder where you have downloaded to my extension. Turn extension on, select extensions in menu bar and pin my extension. Click on its icon, set forbidden keywords, exception and enjoy extension.
+Then, go to browser that is written in chromium (for example Chrome, Opera, Mictosoft Edge). Go to your extensions and turn on "Developer mode". After that, choose "Load unpacked" and select folder where you have downloaded to my extension. Turn extension on, select extensions in menu bar and pin my extension. Click on its icon, set forbidden keywords, exceptions and enjoy extension.
 
