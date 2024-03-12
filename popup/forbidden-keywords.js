@@ -13,8 +13,8 @@ export function hideMessages() {
 
 export function getInputHTML() { //To optimise exceptions
     return `<div class="form-inline ${getInputIndex()}-div">\
-    <input style="width: 300px;" class="form-control form-control-sm my-2 ${getInputIndex()}-input keyword-input" type="text" placeholder="Keyword">\
-    <button type="button" class="btn btn-danger ml-2 ${getInputIndex()}-remove-button">Remove</button>\
+    <input class="form-control form-control-sm my-2 ${getInputIndex()}-input keyword-input" type="text" placeholder="Write here">\
+    <button type="button" class="btn btn-danger remove-button ${getInputIndex()}-remove-button">Remove</button>\
     </div>`;
 }
 
@@ -30,35 +30,19 @@ export function addRemoveButtonListener() {
     })
 }
 
-export function addAddKeywordListener(free) {
+export function addAddKeywordListener() {
     addKeywordButton.addEventListener('click', () => {
         hideMessages();
-        if ((getInputIndex() > 7) && free) {
-            const freeTrialWarning = document.getElementById('free-trial-warning');
-            freeTrialWarning.removeAttribute('hidden')
-        }
-
-        else {
-            console.log(getInputIndex())
-            const inputHtml = getInputHTML()
-            saveButton.insertAdjacentHTML('beforebegin', inputHtml);
-            addRemoveButtonListener();
-        }
+        const inputHtml = getInputHTML()
+        saveButton.insertAdjacentHTML('beforebegin', inputHtml);
+        addRemoveButtonListener();
     })
 }
 
 
 
 window.onload = () => {
-    let free;
-    chrome.storage.sync.get(['free'], result => {
-        free = result.free
-        if (free === undefined) {
-            chrome.storage.sync.set({ free: false });
-            free = false;
-        }
-    })
-    addAddKeywordListener(free);
+    addAddKeywordListener();
     saveButton.addEventListener('click', () => {
         hideMessages();
         let success = true;
@@ -75,22 +59,19 @@ window.onload = () => {
             inputKeywords.push(input.value.trim())
         }
         if (success) {
-            chrome.storage.sync.set({ keywords: inputKeywords });
+            chrome.storage.sync.set({ 'keywordsNoSpoiler': inputKeywords });
             document.getElementById('save-success').removeAttribute('hidden');
         }
 
     })
     //TODO if keywords bigger than 1, don`t click
-    chrome.storage.sync.get(['keywords'], result => {
+    chrome.storage.sync.get(['keywordsNoSpoiler'], result => {
 
-        if (!result.keywords || result.keywords.length === 0) {
-            chrome.storage.sync.set({ 'keywords': [] })
+        if (!result.keywordsNoSpoiler || result.keywordsNoSpoiler.length === 0) {
+            chrome.storage.sync.set({ 'keywordsNoSpoiler': [] })
             addKeywordButton.click();
         }
-        for (const keyword of result.keywords) {
-            if ((getInputIndex() > 7) && free) {
-                break;
-            }
+        for (const keyword of result.keywordsNoSpoiler) {
             console.log(getInputIndex())
             const inputHtml = getInputHTML()
             saveButton.insertAdjacentHTML('beforebegin', inputHtml);

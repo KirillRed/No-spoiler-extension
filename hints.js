@@ -3,14 +3,14 @@
 try {
     var keywords = [];
     var exceptionKeywords = [];
-    chrome.storage.sync.get(['keywords'], result => {
-        if (result.keywords !== undefined) {
-            keywords = result.keywords;
+    chrome.storage.sync.get(['keywordsNoSpoiler'], result => {
+        if (result.keywordsNoSpoiler !== undefined) {
+            keywords = result.keywordsNoSpoiler;
         }
     })
-    chrome.storage.sync.get(['exceptions'], result => {
-        if (result.exceptions !== undefined) {
-            exceptions = result.exceptions;
+    chrome.storage.sync.get(['exceptionsNoSpoiler'], result => {
+        if (result.exceptionsNoSpoiler !== undefined) {
+            exceptions = result.exceptionsNoSpoiler;
         }
     })
 }

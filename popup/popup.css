@@ -6,11 +6,17 @@ body {
     position: relative;
 }
 
+#main {
+    margin-top: 2%;
+    padding-left: 2.5%;
+    padding-right: 2.5%;
+}
+
 a {
     color: cornsilk;
 }
 
-a:hover{
+a:hover {
     color: darkgrey;
 }
 
@@ -22,4 +28,13 @@ a:hover{
 
 .input-group input {
     width: 200px;
+}
+
+.keyword-input {
+    width: 75%;
+}
+
+.remove-button {
+    width: 22%;
+    margin-left: 3%;
 }

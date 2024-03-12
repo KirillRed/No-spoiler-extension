@@ -1,14 +1,14 @@
 try {
     var keywords = [];
-    var exceptionKeywords = [];
-    chrome.storage.sync.get(['keywords'], result => {
-        if (result.keywords !== undefined) {
-            keywords = result.keywords;
+    var exceptions = [];
+    chrome.storage.sync.get(['keywordsNoSpoiler'], result => {
+        if (result.keywordsNoSpoiler !== undefined) {
+            keywords = result.keywordsNoSpoiler;
         }
     })
-    chrome.storage.sync.get(['exceptions'], result => {
-        if (result.exceptions !== undefined) {
-            exceptions = result.exceptions;
+    chrome.storage.sync.get(['exceptionsNoSpoiler'], result => {
+        if (result.exceptionsNoSpoiler !== undefined) {
+            exceptions = result.exceptionsNoSpoiler;
         }
     })
 }
@@ -17,15 +17,17 @@ catch (ReferenceError) {
 }
 try {
     var videoTagList = ['ytd-type-renderer', 'ytd-grid-type-renderer', 'ytd-rich-item-renderer',
-        'ytd-playlist-type-renderer', 'ytd-playlist-panel-type-renderer', 'ytd-compact-type-renderer']; //it may be video, playlist, radio
+        'ytd-playlist-type-renderer', 'ytd-playlist-panel-type-renderer', 'ytd-compact-type-renderer',
+        'ytd-reel-item-renderer']; //it may be video, playlist, radio
     var types = ['video', 'playlist', 'radio'];
 }
 catch (SyntaxError) {
 
 }
 
-
-setInterval(firstVideoBlock, 1000)
+window.onload = () => {
+    setInterval(firstVideoBlock, 1000)
+}
 
 function firstVideoBlock() {
     let videos = [];
@@ -60,18 +62,25 @@ function firstVideoBlock() {
         else {
             title = ariaLabel.slice(0, ariaLabel.lastIndexOf('by'));
         }
-        if (title === null) { //It isn't video, it is channel, ads or something else
+        if (title === null) { //It isn't a video, it is a channel, ads or something else
             continue;
         }
         let blockedKeywords = [];
 
-        for (let keyword of keywords) {
-            if (title.toLowerCase().includes(keyword) && !exceptionKeywords.some(word => title.toLowerCase().includes(word))) {
-                blockedKeywords.push(keyword);
+        if (exceptions.some(exception => title.toLowerCase().includes(exception))) {
+            continue;
+        }
 
+        for (let keyword of keywords) {
+            if (title.toLowerCase().includes(keyword)) {
+                blockedKeywords.push(keyword);
             }
         }
+
+
         if (video.getElementsByClassName('div-blocked').length === 0 && blockedKeywords.length > 0) {
+            let height = video.clientHeight, width = video.clientWidth;
+            if (height < 50 || width < 50) continue;
             video.classList.add('blocked');
             for (const children of video.children) {
                 children.setAttribute('hidden', '');
@@ -83,13 +92,17 @@ function firstVideoBlock() {
             else {
                 blockedKeywordsString = 'these keywords: ' + blockedKeywords.join(', ');
             }
-            video.insertAdjacentHTML('beforeend', `<div class="div-blocked">Video blocked because of ${blockedKeywordsString} <br> If you want to restore it click <a>HERE</a></div>`);
+            video.style.height = `${height}px`
+            video.style.width = `${width}px`
+            video.insertAdjacentHTML('beforeend', `<div class="div-blocked"><span>Video blocked because of ${blockedKeywordsString} <br> If you want to restore it click <a style="cursor: pointer;">HERE</a></span></div>`);
             video.getElementsByClassName('div-blocked')[0].getElementsByTagName('a')[0].addEventListener('click', () => {
                 for (const children of video.children) {
                     children.removeAttribute('hidden');
                 }
                 video.classList.remove('blocked');
                 video.getElementsByClassName('div-blocked')[0].setAttribute('hidden', 'true');
+                video.style.height = null;
+                video.style.width = null;
             })
         }
 

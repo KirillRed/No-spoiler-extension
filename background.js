@@ -1,4 +1,3 @@
-chrome.storage.sync.set({ free: false })
 chrome.tabs.onUpdated.addListener(function (tabID, info, tab) {
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
         if (/https:\/\/www.youtube.com\/*/.test(tab.url)) {

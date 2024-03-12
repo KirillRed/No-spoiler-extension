@@ -3,13 +3,22 @@
     color: white;
     font-size: 2rem;
     text-align: center;
+    padding: 10px;
 }
-.div-blocked{
+
+.div-blocked {
     background-color: black;
+    width: calc(100% - 20px);
+    height: calc(100% - 20px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
 .div-blocked:hover {
     background-color: black;
 }
+
 .div-blocked a {
     color: red;
 }

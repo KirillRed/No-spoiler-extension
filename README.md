@@ -1,10 +1,10 @@
-# Anti-spoiler
+# No-spoiler
 ## Introduction
-This extension is made to protect you from spoilers.
+This extension is made to protect you from spoilers on Youtube.
 
-You can set forbidden keywords and if we find any of these keywords in the title of the video, it will be hidden. You will be able to know keyword(s) that are in this video. Of course, you can restore it if you want.
+You can set forbidden keywords and if we find any of them in the title of the video, it will be hidden. We'll tell you which keywords are there. Of course, you can restore the video if you want.
 
-You can also set exceptions. Exceptions are videos that you don't want to hide.
+You can also set exceptions. If at least one of them is in the title of the video, then even if the title contains some forbidden keywords, the video won't be hidden.
 
 I hope you enjoy this extension! If not, please let me know what is wrong.
 
