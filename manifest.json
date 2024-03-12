@@ -1,6 +1,6 @@
 {
-    "name": "No spoiler ext",
-    "description": "This extension will help you with spoilers! It will block videos that have key words that you provide in this extension.",
+    "name": "No spoiler extension",
+    "description": "This extension will protect you from spoilers! It will block videos that have keywords you provided in their title.",
     "version": "0.0.1",
     "manifest_version": 3,
     "icons": {
