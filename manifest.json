@@ -35,7 +35,7 @@
             "resources": [
                 "index.js",
                 "search-results/search-results-start.js",
-                "./popup/forbidden-keywords.js",
+                "./popup/banned-keywords.js",
                 "./popup/exceptions.js"
             ],
             "matches": [

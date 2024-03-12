@@ -9,7 +9,7 @@
     <link href="/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./popup.css">
     <script src="./popup.js"></script>
-    <script type="module" src="./forbidden-keywords.js"></script>
+    <script type="module" src="./banned-keywords.js"></script>
 </head>
 
 <body>
@@ -18,9 +18,9 @@
     </div>
 
     <div id="main">
-        <h2 style="text-align: center; color: red;">Forbidden keywords</h2>
+        <h2 style="text-align: center; color: red;">Banned keywords</h2>
         <form>
-            <h5 class="mt-3">Write one keyword on each field</h5>
+            <h5 class="mt-3">Write one keyword in each field</h5>
             <button id="save-button" type="button" class="btn btn-primary mr-2">Save</button>
             <button id="add-keyword" type="button" class="btn btn-success">Add one more keyword</button>
             <p id='length-warning' class="message" hidden style="color:red;">Keywords must be at least 3 characters

@@ -1,4 +1,4 @@
-console.log(chrome.runtime.getURL('popup/forbidden-keywords.js'))
+console.log(chrome.runtime.getURL('popup/banned-keywords.js'))
 const script = document.createElement('script');
 script.setAttribute("type", "module");
 script.setAttribute("src", chrome.runtime.getURL('./popup/exceptions.js'));

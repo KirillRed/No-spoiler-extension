@@ -3,7 +3,7 @@
 import {
     addKeywordButton, saveButton, getInputIndex, getInputHTML, addRemoveButtonListener,
     addAddKeywordListener, hideMessages
-} from '../popup/forbidden-keywords.js';
+} from './banned-keywords.js';
 
 
 
