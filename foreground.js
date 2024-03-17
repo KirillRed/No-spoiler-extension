@@ -94,7 +94,7 @@ function firstVideoBlock() {
             }
             video.style.height = `${height}px`
             video.style.width = `${width}px`
-            video.insertAdjacentHTML('beforeend', `<div class="div-blocked"><span>Video blocked because of ${blockedKeywordsString} <br> If you want to restore it click <a style="cursor: pointer;">HERE</a></span></div>`);
+            video.insertAdjacentHTML('beforeend', `<div class="div-blocked"><span>Video blocked because of ${blockedKeywordsString} <br> If you want to restore it, click <a style="cursor: pointer;">HERE</a></span></div>`);
             video.getElementsByClassName('div-blocked')[0].getElementsByTagName('a')[0].addEventListener('click', () => {
                 for (const children of video.children) {
                     children.removeAttribute('hidden');
