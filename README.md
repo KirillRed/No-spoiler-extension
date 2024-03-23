@@ -38,6 +38,6 @@ To install the extension, click the "Code" button at the top of this page and se
 
 After that, unarchive the file to the folder of your choice.
 
-Then, go to the extension manager in your browser (`chrome://extensions/` for Chrome, `opera://extensions` for Opera, `edge://extensions/` for Edge, etc). Then, in some browsers, you have to turn on the "Developer mode" in the top right corner. Then, click "Load unpacked" and select the folder to which you installed our extension. That's it! Enjoy our extension!
+Then, go to the extension manager in your browser (`chrome://extensions/` for Chrome, `opera://extensions` for Opera, `edge://extensions/` for Edge, etc). Then, in some browsers, you have to turn on the "Developer mode" in the top right corner. Then, click "Load unpacked" and select the folder to which you installed our extension. Our extension will appear in your extensions list. Make sure to turn it on. That's it! Enjoy our extension!
 
 ![Setup](./screenshots/setup.png)
